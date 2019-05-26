@@ -49,8 +49,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if(location != null){
             LatLng myLatLng = new LatLng(location.getLatitude(), location.getLongitude());
             mMap.addMarker(new MarkerOptions().position(myLatLng).title("My Location"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(myLatLng));
-            mMap.animateCamera(CameraUpdateFactory.zoomBy(16));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLatLng,12));
         }else{
             Toast.makeText(this, "Location is Null.", Toast.LENGTH_SHORT).show();
         }
@@ -75,8 +74,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onLocationChanged(Location location) {
         LatLng myLatLng = new LatLng(location.getLatitude(), location.getLongitude());
         mMap.addMarker(new MarkerOptions().position(myLatLng).title("My Location"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(myLatLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomBy(16));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLatLng,12));
     }
 
     @Override
